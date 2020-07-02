@@ -1,0 +1,4 @@
+- changelogo.sh
+  - ロゴを変えます
+- fixlogo.sh
+  - ロゴをもとに戻します
