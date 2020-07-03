@@ -10,4 +10,8 @@ im-config
 sudo apt update
 sudo apt -y install snapd
 
+#curl
+sudo apt update
+sudo apt -y curl
+
 echo "please reboot"
