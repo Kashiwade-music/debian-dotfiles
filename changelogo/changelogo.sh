@@ -8,4 +8,4 @@ sudo cp ./fixed-logos/logo-text-version-64.png /usr/share/desktop-base/debian-lo
 sudo cp ./fixed-logos/logo-text-version-128.png /usr/share/desktop-base/debian-logos/
 sudo cp ./fixed-logos/logo-text-version-256.png /usr/share/desktop-base/debian-logos/
 
-echo "finished"
+echo "logo chaenged. if you want to fix your debian logo, please do fixlogo.sh"
