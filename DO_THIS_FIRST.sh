@@ -3,7 +3,7 @@
 LANG=C xdg-user-dirs-gtk-update
 
 sudo apt update
-sudo apt install fcitx-mozc
+sudo apt -y install fcitx-mozc
 im-config
 
 #snap
