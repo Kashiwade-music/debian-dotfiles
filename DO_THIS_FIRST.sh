@@ -5,7 +5,7 @@ LANG=C xdg-user-dirs-gtk-update
 sudo apt update
 sudo apt -y install fcitx-mozc
 
-sudo apt purge ibus -y
+sudo apt -y purge ibus 
 
 im-config
 
