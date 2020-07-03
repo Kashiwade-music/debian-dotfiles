@@ -3,42 +3,42 @@
 
 # gnome extension host connector
 sudo apt-get update
-sudo apt-get install chrome-gnome-shell
+sudo apt-get -y install chrome-gnome-shell
 
 #imwheel
 sudo apt-get update
-sudo apt-get install imwheel
+sudo apt-get -y install imwheel
 
 #neofetch
-sudo apt-get install neofetch
+sudo apt-get -y install neofetch
 
 #git
 sudo apt-get update
-sudo apt-get install git
+sudo apt-get -y install git
 
 #texlive
-sudo apt-get install texlive
+sudo apt-get -y install texlive
 
 #vivaldi
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
-sudo apt update && sudo apt install vivaldi-stable
+sudo apt update && sudo apt -y install vivaldi-stable
 
 #snap
 sudo apt update
-sudo apt install snapd
+sudo apt -y install snapd
 
 #VScode
-sudo snap install --classic code
+sudo snap -y install --classic code
 
 #Postman
-sudo snap install Postman
+sudo snap -y install postman
 
 #syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 sudo apt-get update
-sudo apt-get install syncthing
+sudo apt-get -y install syncthing
 
 
 echo "install finished"
