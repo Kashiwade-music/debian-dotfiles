@@ -29,10 +29,10 @@ sudo apt update
 sudo apt -y install snapd
 
 #VScode
-sudo snap -y install --classic code
+sudo snap install --classic code
 
 #Postman
-sudo snap -y install postman
+sudo snap install postman
 
 #syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
