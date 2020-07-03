@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sh ./installprogram/installprogram.sh
-
 gnome-tweaks &
+
+sh ./installprogram/installprogram.sh
 
 sh ./changesetting/changesetting.sh
 
