@@ -7,7 +7,3 @@ sh DO_THIS_FIRST.sh
 ```sh
 sh DO_THIS_SECOND.sh
 ```
-
-```sh
-sh DO_THIS_THIRD.sh
-```
