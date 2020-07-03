@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # gnome extension host connector
 sudo apt-get update
 sudo apt-get install chrome-gnome-shell
@@ -7,6 +8,9 @@ sudo apt-get install chrome-gnome-shell
 #imwheel
 sudo apt-get update
 sudo apt-get install imwheel
+
+#neofetch
+sudo apt-get install neofetch
 
 #git
 sudo apt-get update
