@@ -13,9 +13,12 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 gsettings set org.gnome.shell favorite-apps "['code_code.desktop', 'vivaldi-stable.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
 
+gnome-tweaks &
+
 cp ./changesetting/forcopy/.imwheelrc ~/
 cp ./changesetting/forcopy/imwheel.desktop ~/.config/autostart/
 cp ./changesetting/forcopy/syncthing.desktop ~/.config/autostart/
 
+pkill gnome-tweaks
 
 echo "configuration finished"
