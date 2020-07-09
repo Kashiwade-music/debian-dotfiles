@@ -17,7 +17,7 @@ sudo apt-get update
 sudo apt-get -y install git
 
 #texlive
-sudo apt-get -y install texlive
+sudo apt-get -y install texlive-full
 
 #vivaldi
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
