@@ -16,8 +16,7 @@ gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.de
 
 
 
-cp ./changesetting/forcopy/.imwheelrc ~/
-cp ./changesetting/forcopy/imwheel.desktop ~/.config/autostart/
+
 cp ./changesetting/forcopy/syncthing.desktop ~/.config/autostart/
 
 pkill gnome-tweaks
