@@ -5,10 +5,6 @@
 sudo apt-get update
 sudo apt-get -y install chrome-gnome-shell
 
-#imwheel
-sudo apt-get update
-sudo apt-get -y install imwheel
-
 #neofetch
 sudo apt-get -y install neofetch
 
