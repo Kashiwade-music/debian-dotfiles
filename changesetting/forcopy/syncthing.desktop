@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Exec=/usr/bin/syncthing -no-browser
-Hidden=false
-X-UKUI-Autostart-enabled=true
-Name[ja_JP]=syncthing
-Name=syncthing
-Comment[ja_JP]=
-Comment=
