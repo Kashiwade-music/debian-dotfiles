@@ -74,7 +74,7 @@ gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.de
 
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
-gsettings set org.gtk.settings.file-chooser show-hidden true
+gsettings set org.gtk.Settings.FileChooser show-hidden true
 
 xdg-settings set default-web-browser vivaldi-stable.desktop
 
