@@ -87,3 +87,4 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 echo "${ESC}[34mConfiguration finished${ESC}[m"
+echo "${ESC}[34mPlease reboot.${ESC}[m"
