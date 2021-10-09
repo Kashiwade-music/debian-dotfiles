@@ -18,6 +18,7 @@ The following is a web page with installation instructions for each software.
 - [Postman](https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-postman-on-linux)
 - [Syncthing](https://apt.syncthing.net)
 - [Docker](https://docs.docker.com/engine/install/debian/)
+  - If the latest codename for debian stable is not **bullseye**, then change the code.
 - dconf-editor
 
 ## Debian Settings
