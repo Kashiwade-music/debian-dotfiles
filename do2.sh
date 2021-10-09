@@ -73,5 +73,5 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
 mkdir ~/.config/autostart/
 cp ./forCopy/syncthing-start.desktop ~/.config/autostart/
-sudo apt autoremove
+sudo apt autoremove -y
 echo "${ESC}[34mConfiguration finished${ESC}[m"
