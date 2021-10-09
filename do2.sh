@@ -32,7 +32,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 rm -f packages.microsoft.gpg
 sudo apt install apt-transport-https
 sudo apt update
-sudo apt install code
+sudo apt install -y code
 
 # Postman
 sudo snap install postman
@@ -41,10 +41,10 @@ sudo snap install postman
 sudo curl -s -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 sudo apt update
-sudo apt install syncthing
+sudo apt install -y syncthing
 
 # Docker
-sudo apt install \
+sudo apt -y install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -56,10 +56,10 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   bullseye stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt -y install docker-ce docker-ce-cli containerd.io
 
 # dconf-editor
-sudo apt install dconf-editor
+sudo apt -y install dconf-editor
 
 # Settings
 gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Shift><Super>s']"
