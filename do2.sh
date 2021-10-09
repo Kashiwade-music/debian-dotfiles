@@ -74,9 +74,16 @@ gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.de
 
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
+gsettings set org.gtk.settings.file-chooser show-hidden true
+
 xdg-settings set default-web-browser vivaldi-stable.desktop
 
 mkdir ~/.config/autostart/
 cp ./forCopy/syncthing-start.desktop ~/.config/autostart/
 sudo apt autoremove -y
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
 echo "${ESC}[34mConfiguration finished${ESC}[m"
