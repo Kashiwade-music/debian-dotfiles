@@ -36,8 +36,8 @@ sudo apt install apt-transport-https
 sudo apt update
 sudo apt install -y code
 
-# Postman
-sudo snap install postman
+# Postman / checled at 20220611
+sudo snap install -y postman
 
 # Syncthing
 sudo curl -s -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
