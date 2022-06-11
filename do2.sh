@@ -64,6 +64,43 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plu
 # dconf-editor
 sudo apt -y install dconf-editor
 
+# powershell
+sudo apt update && sudo apt install -y curl gnupg apt-transport-https
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
+sudo apt update
+sudo apt install -y powershell
+
+# oh-my-posh
+sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh
+mkdir ~/.poshthemes
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+chmod u+rw ~/.poshthemes/*.omp.*
+rm ~/.poshthemes/themes.zip
+cp ./forCopy/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.Powershell_profile.ps1
+
+# nerd-fonts
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip -O ~/.local/share/fonts/SourceCodePro.zip
+unzip ~/.local/share/fonts/SourceCodePro.zip -d ~/.local/share/fonts
+rm ~/.local/share/fonts/SourceCodePro.zip
+
+# espanso
+wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/espanso-debian-x11-amd64.deb
+sudo apt install -y ./espanso-debian-x11-amd64.deb
+espanso service register
+cp ./forCopy/base.yaml ~/.config/espanso/match/base.yaml
+espanso start
+
+# duf
+sudo apt update
+sudo apt install -y duf
+
+# dua
+curl -LSfs https://raw.githubusercontent.com/Byron/dua-cli/master/ci/install.sh | \
+    sh -s -- --git Byron/dua-cli --target x86_64-unknown-linux-musl --crate dua --tag v2.17.4
+
 # Settings
 gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Shift><Super>s']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Primary><Alt>f']"

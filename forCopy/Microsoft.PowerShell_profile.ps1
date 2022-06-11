@@ -1,0 +1,1 @@
+oh-my-posh --init --shell pwsh --config ~/.poshthemes/night-owl.omp.json | Invoke-Expression
