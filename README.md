@@ -8,18 +8,6 @@ sh do1.sh
 sh do2.sh
 ```
 
-## Software Installation
-The following is a web page with installation instructions for each software.
-- [chrome-gnome-shell](https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation)
-- [neofetch](https://github.com/dylanaraps/neofetch/wiki/Installation)
-- [git](https://git-scm.com/download/linux)
-- [Vivaldi](https://help.vivaldi.com/ja/desktop-ja/install-update-ja/manual-setup-vivaldi-linux-repositories/)
-- [VSCode](https://code.visualstudio.com/docs/setup/linux)
-- [Postman](https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-postman-on-linux)
-- [Syncthing](https://apt.syncthing.net)
-- [Docker](https://docs.docker.com/engine/install/debian/)
-  - If the latest codename for debian stable is not **bullseye**, then change the code.
-- dconf-editor
 
 ## Debian Settings
 The code in this section is based on the results of monitoring for changes with the "dconf watcch /" command.
