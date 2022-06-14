@@ -105,10 +105,11 @@ wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/esp
 sudo apt install -y ./espanso-debian-wayland-amd64.deb
 sudo setcap "cap_dac_override+p" $(which espanso)
 espanso service register
+espanso start
 find ~/.config/espanso/match/ -name "*.yaml"|xargs rm
 find ~/.config/espanso/match/ -name "*.yml"|xargs rm
 cp ./forCopy/base.yaml ~/.config/espanso/match/base.yaml
-espanso start
+
 
 # duf
 echo "${ESC}[34m------------duf------------${ESC}[m"
