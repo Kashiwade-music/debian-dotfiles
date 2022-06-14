@@ -15,6 +15,7 @@ sudo nano /etc/apt/sources.list
 ```
 3 つ目のフィールドをsidに
 セキュリティ関連のものは削除する
+![](./list.png)
 
 ```sh
 sudo apt full-upgrade

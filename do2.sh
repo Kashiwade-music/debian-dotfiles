@@ -37,7 +37,7 @@ sudo apt update
 sudo apt install -y code
 
 # Postman / checled at 20220611
-sudo snap install -y postman
+sudo snap install postman
 
 # Syncthing / checled at 20220611
 sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
@@ -45,7 +45,7 @@ echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://
 sudo apt update
 sudo apt install -y syncthing
 
-# Docker / checled at 20220611
+# Docker / checled at 20220611 / bullseye
 sudo apt update
 sudo apt-get install \
     ca-certificates \
@@ -56,7 +56,7 @@ sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  bullseye stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
@@ -79,17 +79,21 @@ wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/theme
 unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
 chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
+mkdir -p ~/.config/powershell/
 cp ./forCopy/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.Powershell_profile.ps1
 
 # nerd-fonts
-sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip -O ~/.local/share/fonts/SourceCodePro.zip
-unzip ~/.local/share/fonts/SourceCodePro.zip -d ~/.local/share/fonts
-rm ~/.local/share/fonts/SourceCodePro.zip
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip -O /usr/share/fonts/SourceCodePro.zip
+sudo unzip /usr/share/fonts/SourceCodePro.zip -d /usr/share/fonts/truetype/SauceCodePro/
+sudo rm /usr/share/fonts/SourceCodePro.zip
 
 # espanso
-wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/espanso-debian-x11-amd64.deb
-sudo apt install -y ./espanso-debian-x11-amd64.deb
+wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/espanso-debian-wayland-amd64.deb
+sudo apt install ./espanso-debian-wayland-amd64.deb
+sudo setcap "cap_dac_override+p" $(which espanso)
 espanso service register
+find ~/.config/espanso/match/ -name "*.yaml"|xargs rm
+find ~/.config/espanso/match/ -name "*.yml"|xargs rm
 cp ./forCopy/base.yaml ~/.config/espanso/match/base.yaml
 espanso start
 
@@ -100,6 +104,7 @@ sudo apt install -y duf
 # dua
 curl -LSfs https://raw.githubusercontent.com/Byron/dua-cli/master/ci/install.sh | \
     sh -s -- --git Byron/dua-cli --target x86_64-unknown-linux-musl --crate dua --tag v2.17.4
+export PATH="$PATH:~/.cargo/bin/"
 
 # Settings
 gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Shift><Super>s']"
@@ -110,7 +115,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "gnome-terminal"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Primary><Alt>t"
 
-gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
+gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
 
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
