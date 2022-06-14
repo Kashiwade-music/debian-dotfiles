@@ -91,7 +91,7 @@ unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
 chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
 mkdir -p ~/.config/powershell/
-cp ./forCopy/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.Powershell_profile.ps1
+cp ./forCopy/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
 # nerd-fonts
 echo "${ESC}[34m------------nerd-fonts------------${ESC}[m"
@@ -102,7 +102,7 @@ sudo rm /usr/share/fonts/SourceCodePro.zip
 # espanso
 echo "${ESC}[34m------------espanso------------${ESC}[m"
 wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/espanso-debian-wayland-amd64.deb
-sudo apt install ./espanso-debian-wayland-amd64.deb
+sudo apt install -y ./espanso-debian-wayland-amd64.deb
 sudo setcap "cap_dac_override+p" $(which espanso)
 espanso service register
 find ~/.config/espanso/match/ -name "*.yaml"|xargs rm
