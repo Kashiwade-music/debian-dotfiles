@@ -12,21 +12,26 @@ echo "${ESC}[34mSTEP: Make sure that certain characters are input in half-width 
 
 # Install Programs
 # gnome extension host connector
+echo "${ESC}[34m------------gnome extension host connentor------------${ESC}[m"
 sudo apt -y install chrome-gnome-shell
 
 # neofetch
+echo "${ESC}[34m------------neofetch------------${ESC}[m"
 sudo apt -y install neofetch
 
 # git
+echo "${ESC}[34m------------git------------${ESC}[m"
 sudo apt -y install git
 
 # vivaldi / checked at 20220611
+echo "${ESC}[34m------------vivaldi------------${ESC}[m"
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | sudo dd of=/usr/share/keyrings/vivaldi-browser.gpg
 echo "deb [signed-by=/usr/share/keyrings/vivaldi-browser.gpg arch=$(dpkg --print-architecture)] https://repo.vivaldi.com/archive/deb/ stable main" | sudo dd of=/etc/apt/sources.list.d/vivaldi-archive.list
 sudo apt update && sudo apt -y install vivaldi-stable
 
 
 # VSCode / checled at 20220611
+echo "${ESC}[34m------------VSCode------------${ESC}[m"
 sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -37,15 +42,18 @@ sudo apt update
 sudo apt install -y code
 
 # Postman / checled at 20220611
+echo "${ESC}[34m------------Postman------------${ESC}[m"
 sudo snap install postman
 
 # Syncthing / checled at 20220611
+echo "${ESC}[34m------------Syncthing------------${ESC}[m"
 sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 sudo apt update
 sudo apt install -y syncthing
 
 # Docker / checled at 20220611 / bullseye
+echo "${ESC}[34m------------Docker------------${ESC}[m"
 sudo apt update
 sudo apt-get install \
     ca-certificates \
@@ -62,9 +70,11 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plu
 
 
 # dconf-editor
+echo "${ESC}[34m------------dconf-editor------------${ESC}[m"
 sudo apt -y install dconf-editor
 
 # powershell
+echo "${ESC}[34m------------powershell------------${ESC}[m"
 sudo apt update && sudo apt install -y curl gnupg apt-transport-https
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
@@ -72,6 +82,7 @@ sudo apt update
 sudo apt install -y powershell
 
 # oh-my-posh
+echo "${ESC}[34m------------oh-my-posh------------${ESC}[m"
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
 mkdir ~/.poshthemes
@@ -83,11 +94,13 @@ mkdir -p ~/.config/powershell/
 cp ./forCopy/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.Powershell_profile.ps1
 
 # nerd-fonts
+echo "${ESC}[34m------------nerd-fonts------------${ESC}[m"
 sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip -O /usr/share/fonts/SourceCodePro.zip
 sudo unzip /usr/share/fonts/SourceCodePro.zip -d /usr/share/fonts/truetype/SauceCodePro/
 sudo rm /usr/share/fonts/SourceCodePro.zip
 
 # espanso
+echo "${ESC}[34m------------espanso------------${ESC}[m"
 wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/espanso-debian-wayland-amd64.deb
 sudo apt install ./espanso-debian-wayland-amd64.deb
 sudo setcap "cap_dac_override+p" $(which espanso)
@@ -98,15 +111,18 @@ cp ./forCopy/base.yaml ~/.config/espanso/match/base.yaml
 espanso start
 
 # duf
+echo "${ESC}[34m------------duf------------${ESC}[m"
 sudo apt update
 sudo apt install -y duf
 
 # dua
+echo "${ESC}[34m------------dua------------${ESC}[m"
 curl -LSfs https://raw.githubusercontent.com/Byron/dua-cli/master/ci/install.sh | \
     sh -s -- --git Byron/dua-cli --target x86_64-unknown-linux-musl --crate dua --tag v2.17.4
 export PATH="$PATH:~/.cargo/bin/"
 
 # Settings
+echo "${ESC}[34m------------Settings------------${ESC}[m"
 gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Shift><Super>s']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Primary><Alt>f']"
 
