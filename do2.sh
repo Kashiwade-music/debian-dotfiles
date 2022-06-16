@@ -122,6 +122,33 @@ curl -LSfs https://raw.githubusercontent.com/Byron/dua-cli/master/ci/install.sh 
     sh -s -- --git Byron/dua-cli --target x86_64-unknown-linux-musl --crate dua --tag v2.17.4
 export PATH="$PATH:~/.cargo/bin/"
 
+# wezterm
+echo "${ESC}[34m------------wezterm------------${ESC}[m"
+wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Debian11.deb
+sudo apt -y install ./wezterm-nightly.Debian11.deb
+cp ./forCopy/.wezterm.lua ~/.wezterm.lua
+
+# pip3
+echo "${ESC}[34m------------pip3------------${ESC}[m"
+sudo apt install -y python-pip3
+
+# nautilus-open-any-terminal
+echo "${ESC}[34m------------nautilus-open-any-terminal------------${ESC}[m"
+pip3 install nautilus-open-any-terminal
+
+# add code-nautilus
+echo "${ESC}[34m------------code-nautilus------------${ESC}[m"
+wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh | bash
+
+
+# set default terminal
+echo "${ESC}[34mSET YOUR TERMINAL AS WESTERM${ESC}[m"
+sudo update-alternatives --config x-terminal-emulator
+
+# set git
+git config --global user.name "kashiwade"
+git config --global user.email "music5d7_1415@outlook.com"
+
 # Settings
 echo "${ESC}[34m------------Settings------------${ESC}[m"
 gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Shift><Super>s']"
