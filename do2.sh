@@ -108,8 +108,10 @@ espanso service register
 espanso start
 find ~/.config/espanso/match/ -name "*.yaml"|xargs rm
 find ~/.config/espanso/match/ -name "*.yml"|xargs rm
-cp ./forCopy/base.yaml ~/.config/espanso/match/base.yaml
-
+cp ./forCopy/base.yml ~/.config/espanso/match/base.yml
+find ~/.config/espanso/config/ -name "*.yaml"|xargs rm
+find ~/.config/espanso/config/ -name "*.yml"|xargs rm
+cp ./forCopy/default.yml ~/.config/espanso/config/default.yml
 
 # duf
 echo "${ESC}[34m------------duf------------${ESC}[m"
@@ -127,6 +129,8 @@ echo "${ESC}[34m------------wezterm------------${ESC}[m"
 wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Debian11.deb
 sudo apt -y install ./wezterm-nightly.Debian11.deb
 cp ./forCopy/.wezterm.lua ~/.wezterm.lua
+
+
 
 # pip3
 echo "${ESC}[34m------------pip3------------${ESC}[m"
@@ -156,10 +160,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Primary><Alt
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "terminal"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "gnome-terminal"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "wezterm"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Primary><Alt>t"
 
-gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
+gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.desktop', 'org.wezfurlong.wezterm.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
 
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
