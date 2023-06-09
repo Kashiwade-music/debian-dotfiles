@@ -1,5 +1,11 @@
 # debian-setting-shell
 (if you want, make your disrtibution "sid")
+## set sudo
+```sh
+su -
+visudo
+```
+
 ## sid
 ```sh
 sudo nano /etc/apt/sources.list
@@ -23,6 +29,8 @@ sh do1.sh
 sh do2.sh
 ```
 
-
+## for swaydm
+- install debian with no desktop manager
+  - but install 標準システムユーティリティ (standard system utilities)
 
 
