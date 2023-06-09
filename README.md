@@ -18,6 +18,14 @@ sudo nano /etc/apt/sources.list
 sudo apt full-upgrade
 ```
 
+## install git and clone
+```sh
+sudo apt update
+sudo apt install git
+cd ドキュメント
+git clone 
+```
+
 ## for gnome desktop
 
 ```sh
