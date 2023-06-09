@@ -23,7 +23,7 @@ sudo apt full-upgrade
 sudo apt update
 sudo apt install git
 cd ドキュメント
-git clone 
+git clone https://github.com/Kashiwade-music/debian-dotfiles.git
 ```
 
 ## for gnome desktop

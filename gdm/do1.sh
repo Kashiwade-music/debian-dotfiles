@@ -9,11 +9,16 @@ LANG=C xdg-user-dirs-gtk-update
 # Install fcitx-mozc
 # Uninstall ibus to prevent fcitx and ibus from fighting with each other.
 sudo apt -y install fcitx-mozc
-sudo apt -y purge ibus 
+sudo apt -y purge ibus
 
 echo "${ESC}[34mSTEP: Set input method to fcitx ${ESC}[m"
 im-config
 
-
 sudo apt -y install snapd curl
+
+# git clone to Documents
+cd ~/Documents
+git clone https://github.com/Kashiwade-music/debian-dotfiles.git
+rm -rf ~/ドキュメント
+
 sudo reboot
