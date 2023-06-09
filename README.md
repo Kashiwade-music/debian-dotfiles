@@ -1,14 +1,5 @@
 # debian-setting-shell
 (if you want, make your disrtibution "sid")
-
-```sh
-sh do1.sh
-```
-
-```sh
-sh do2.sh
-```
-
 ## sid
 ```sh
 sudo nano /etc/apt/sources.list
@@ -20,5 +11,18 @@ sudo nano /etc/apt/sources.list
 ```sh
 sudo apt full-upgrade
 ```
+
+## for gnome desktop
+
+```sh
+cd ./gdm
+sh do1.sh
+```
+
+```sh
+sh do2.sh
+```
+
+
 
 
