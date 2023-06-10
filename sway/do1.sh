@@ -5,6 +5,19 @@ sudo apt update
 # install sway and other utils
 sudo apt install sway swaylock swayidle waybar swaybg wofi grim slurp mako wob xwayland -y
 
+# install sway build dependencies
+sudo apt install cmake meson libwayland-bin libwayland-dev wayland-protocols libxkbcommon-dev libcairo2-dev scdoc -y
+mkdir -p ./build
+cd ./build
+
+# install swaylock-effects
+git clone https://github.com/mortie/swaylock-effects.git
+cd swaylock-effects
+meson build
+ninja -C build
+sudo ninja -C build install
+sudo chmod a+s /usr/local/bin/swaylock
+
 # install sway config
 mkdir -p ~/.config/sway
 find ~/.config/sway/ -name "config" | xargs rm

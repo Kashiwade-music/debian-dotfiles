@@ -83,9 +83,12 @@ window#waybar.chromium {
 #memory,
 #disk,
 #temperature,
-#battery,
 #workspaces {
   margin: 0 4px;
+}
+
+#battery {
+  margin: 0 10px 0 4px;
 }
 
 #network {

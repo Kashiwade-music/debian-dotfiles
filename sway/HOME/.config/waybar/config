@@ -18,8 +18,7 @@
     "memory",
     "network",
     "sway/language",
-    "battery",
-    "tray"
+    "battery"
   ],
   // Modules configuration
 
