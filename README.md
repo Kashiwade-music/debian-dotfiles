@@ -1,12 +1,12 @@
 # debian-setting-shell
-(if you want, make your disrtibution "sid")
-## set sudo
+
+## 1. set sudo
 ```sh
 su -
 visudo
 ```
 
-## sid
+## 2. sid
 ```sh
 sudo nano /etc/apt/sources.list
 ```
@@ -14,14 +14,17 @@ sudo nano /etc/apt/sources.list
 セキュリティ関連のものは削除する
 ![](./list.png)
 
+
 ```sh
 sudo apt full-upgrade
 ```
 
-## install git and clone
+## 3. install git and clone
 ```sh
 sudo apt update
 sudo apt install git
+
+# if gdm installed
 cd ドキュメント
 git clone https://github.com/Kashiwade-music/debian-dotfiles.git
 ```

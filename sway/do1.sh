@@ -2,6 +2,9 @@
 ESC=$(printf '\033')
 sudo apt update
 
+# mkdir Documents Downloads Pictures Videos Music
+mkdir -p ~/Documents ~/Downloads ~/Pictures ~/Videos ~/Music
+
 # install sway and other utils
 sudo apt install sway swaylock swayidle waybar swaybg wofi grim slurp mako wob xwayland -y
 
