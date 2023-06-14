@@ -1,36 +1,25 @@
 # debian-setting-shell
+## pre-configuration
+- debian install
+  - if you want to use GNOME, install GNOME at "Software seection"
+  - if you want to use Hyprland, don't install any debian desktop environment but install standard system utilities 
+- after install, change /etc/apt/sources.list and set `sid` to third field of each list.
+  ![](./list.png)
+  after that, start upgrade and reboot
+  ```sh
+  sudo apt full-upgrade
+  ```
+- install git
+  ```sh
+  sudo apt install git
+  ```
+- if needed, add your user to sudoers list
+  ```sh
+  su -
+  visudo
+  ```
 
-## 1. set sudo
-```sh
-su -
-visudo
-```
-
-## 2. sid
-```sh
-sudo nano /etc/apt/sources.list
-```
-3 つ目のフィールドをsidに
-セキュリティ関連のものは削除する
-![](./list.png)
-
-
-```sh
-sudo apt full-upgrade
-```
-
-## 3. install git and clone
-```sh
-sudo apt update
-sudo apt install git
-
-# if gdm installed
-cd ドキュメント
-git clone https://github.com/Kashiwade-music/debian-dotfiles.git
-```
-
-## for gnome desktop
-
+## GNOME
 ```sh
 cd ./gdm
 sh do1.sh
@@ -40,8 +29,14 @@ sh do1.sh
 sh do2.sh
 ```
 
-## for swaydm
-- install debian with no desktop manager
-  - but install 標準システムユーティリティ (standard system utilities)
-
-
+## Hyprland
+- make directory and clone
+  ```sh
+  cd ~
+  mkdir -p Documents
+  cd Documents
+  git clone https://github.com/Kashiwade-music/debian-dotfiles.git
+  cd debian-dotfiles
+  ```
+- run
+  
