@@ -15,6 +15,11 @@ sudo apt install -y meson \
     cmake \
     cmake-extras
 
+# needed for building xcb-errors (it is a dependency of wlroots)
+sudo apt install -y dh-autoreconf \
+    xutils-dev \
+    xcb-proto
+
 # needed for building hyprland
 sudo apt install -y gettext \
     gettext-base \
@@ -126,6 +131,16 @@ ninja -C build/
 sudo ninja -C build/ install
 cd $CWDIR/build
 
+# install xcb-errors
+# (dependency of wlroot)
+git clone https://gitlab.freedesktop.org/xorg/lib/libxcb-errors.git --recursive
+cd libxcb-errors
+./autogen.sh
+./configure --prefix=/usr
+make
+sudo make install
+cd $CWDIR/build
+
 # install hyprland
 wget https://github.com/hyprwm/Hyprland/releases/download/v0.26.0/source-v0.26.0.tar.gz
 tar -xvf source-v0.26.0.tar.gz
@@ -145,7 +160,7 @@ mkdir build &&
     meson setup --prefix=/usr --buildtype=release &&
     ninja
 sudo ninja install
-cd ../..
+cd $CWDIR/build
 
 # install xdg-desktop-portal-hyprland
 wget -O xdg-desktop-portal-hyprland.tar.gz https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v0.4.0.tar.gz
@@ -156,6 +171,22 @@ ninja -C build
 cd hyprland-share-picker && make all && cd ..
 ninja -C build install
 sudo cp ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
+cd $CWDIR/build
+
+# install waybar
+git clone https://github.com/Alexays/Waybar.git
+cd Waybar
+sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
+meson configure -Dexperimental=true build
+sudo ninja -C build install
+cd $CWDIR/build
+
+# install hyprpaper
+git clone https://github.com/hyprwm/hyprpaper.git
+cd hyprpaper
+sudo make install
+cd $CWDIR/build
 
 ##########################
 cd $CWDIR
@@ -164,7 +195,7 @@ cd $CWDIR
 # install other utils
 sudo apt install -y mako     # notification daemon
 sudo apt install -y pipewire # screensharing
-sudo apt install swaylock swayidle waybar swaybg wofi grim slurp wob xwayland -y
+sudo apt install swaylock swayidle swaybg wofi grim slurp wob xwayland -y
 
 # install sway config
 ## mkdir -p ~/.config/sway
@@ -175,6 +206,12 @@ sudo apt install swaylock swayidle waybar swaybg wofi grim slurp wob xwayland -y
 ## chmod +x ~/.config/sway/inactive-windows-transparency.py
 ## ln -s "$(pwd)/HOME/.config/sway/inactive-windows-transparency.sh" ~/.config/sway/inactive-windows-transparency.sh
 ## chmod +x ~/.config/sway/inactive-windows-transparency.sh
+
+# install hyprland config
+mkdir -p ~/.config/hyprland
+find ~/.config/hyprland/ -name "conf" | xargs rm
+ln -s "$(pwd)/HOME/.config/hypr/hyprland.conf" ~/.config/hypr/hyprland.conf
+ln -s "$(pwd)/HOME/.config/hypr/hyprpaper.conf" ~/.config/hypr/hyprpaper.conf
 
 # install wofi config
 mkdir -p ~/.config/wofi
