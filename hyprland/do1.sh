@@ -57,10 +57,14 @@ sudo apt install -y gettext \
     libpango1.0-dev \
     xdg-desktop-portal-wlr \
     hwdata
-sudo apt install -y qt6-wayland          # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-base-dev         # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-base-dev-tools   # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-base-private-dev # needed for building xdg-desktop-portal-hyprland
+
+# needed for building xdg-desktop-portal-hyprland
+sudo apt install -y qt6-wayland \
+    qt6-base-dev \
+    qt6-base-dev-tools \
+    qt6-base-private-dev \
+    libpipewire-0.3-dev \
+    libinih-dev
 
 # install wm
 # clean up old build
@@ -119,9 +123,20 @@ sed -i 's/\/usr\/local/\/usr/g' config.mk
 sudo make install
 cd $CWDIR/build
 
+# install hyprland-protocols
+wget -O hyprland-protocols.tar.gz https://github.com/hyprwm/hyprland-protocols/archive/refs/tags/v0.2.tar.gz
+tar -xvf hyprland-protocols.tar.gz
+cd hyprland-protocols-0.2
+mkdir build &&
+    cd build &&
+    meson setup --prefix=/usr --buildtype=release &&
+    ninja
+sudo ninja install
+cd ../..
+
 # install xdg-desktop-portal-hyprland
-wget -O xdg-desktop-portal-hyprland https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v0.4.0.tar.gz
-tar -xvf xdg-desktop-portal-hyprland
+wget -O xdg-desktop-portal-hyprland.tar.gz https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v0.4.0.tar.gz
+tar -xvf xdg-desktop-portal-hyprland.tar.gz
 cd xdg-desktop-portal-hyprland-0.4.0
 meson build --prefix=/usr
 ninja -C build
