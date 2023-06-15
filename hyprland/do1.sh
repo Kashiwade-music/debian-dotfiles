@@ -6,13 +6,14 @@ sudo apt update
 mkdir -p ~/Documents ~/Downloads ~/Pictures ~/Videos ~/Music
 
 # install build dependencies
-sudo apt install -y wget # for downloading files
+sudo apt install -y wget \
+    build-essential
 
-sudo apt install -y meson       # needed for building wayland, wayland-protocols, wlroots
-sudo apt install -y ninja-build # needed for building wayland, wayland-protocols, wlroots
-sudo apt install -y build-essential
-sudo apt install -y cmake        # needed for building hyprland
-sudo apt install -y cmake-extras # needed for building hyprland
+# needed for building wayland, wayland-protocols, wlroots, hyprland(cmake)
+sudo apt install -y meson \
+    ninja-build \
+    cmake \
+    cmake-extras
 
 # needed for building hyprland
 sudo apt install -y gettext \
@@ -55,7 +56,6 @@ sudo apt install -y gettext \
     libxcb-res0-dev \
     libxcb-xinput-dev \
     libpango1.0-dev \
-    xdg-desktop-portal-wlr \
     hwdata
 
 # needed for building xdg-desktop-portal-hyprland
