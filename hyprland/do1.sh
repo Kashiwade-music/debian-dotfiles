@@ -14,51 +14,51 @@ sudo apt install -y build-essential
 sudo apt install -y cmake        # needed for building hyprland
 sudo apt install -y cmake-extras # needed for building hyprland
 
-sudo apt install -y gettext                     # needed for building hyprland
-sudo apt install -y gettext-base                # needed for building hyprland
-sudo apt install -y fontconfig                  # needed for building hyprland
-sudo apt install -y libfontconfig-dev           # needed for building hyprland
-sudo apt install -y libffi-dev                  # needed for building hyprland
-sudo apt install -y libxml2-dev                 # needed for building hyprland
-sudo apt install -y libdrm-dev                  # needed for building hyprland
-sudo apt install -y libxkbcommon-x11-dev        # needed for building hyprland
-sudo apt install -y libxkbregistry-dev          # needed for building hyprland
-sudo apt install -y libxkbcommon-dev            # needed for building hyprland
-sudo apt install -y libpixman-1-dev             # needed for building hyprland
-sudo apt install -y libudev-dev                 # needed for building hyprland
-sudo apt install -y libseat-dev                 # needed for building hyprland
-sudo apt install -y seatd                       # needed for building hyprland
-sudo apt install -y libxcb-dri3-dev             # needed for building hyprland
-sudo apt install -y libvulkan-dev               # needed for building hyprland
-sudo apt install -y libvulkan-volk-dev          # needed for building hyprland
-sudo apt install -y vulkan-validationlayers-dev # needed for building hyprland
-sudo apt install -y libvkfft-dev                # needed for building hyprland
-sudo apt install -y libgulkan-dev               # needed for building hyprland
-sudo apt install -y libegl-dev                  # needed for building hyprland
-sudo apt install -y libgles2                    # needed for building hyprland
-sudo apt install -y libegl1-mesa-dev            # needed for building hyprland
-sudo apt install -y glslang-tools               # needed for building hyprland
-sudo apt install -y libinput-bin                # needed for building hyprland
-sudo apt install -y libinput-dev                # needed for building hyprland
-sudo apt install -y libxcb-composite0-dev       # needed for building hyprland
-sudo apt install -y libavutil-dev               # needed for building hyprland
-sudo apt install -y libavcodec-dev              # needed for building hyprland
-sudo apt install -y libavformat-dev             # needed for building hyprland
-sudo apt install -y libxcb-ewmh2                # needed for building hyprland
-sudo apt install -y libxcb-ewmh-dev             # needed for building hyprland
-sudo apt install -y libxcb-present-dev          # needed for building hyprland
-sudo apt install -y libxcb-icccm4-dev           # needed for building hyprland
-sudo apt install -y libxcb-render-util0-dev     # needed for building hyprland
-sudo apt install -y libxcb-res0-dev             # needed for building hyprland
-sudo apt install -y libxcb-xinput-dev           # needed for building hyprland
-sudo apt install -y libpango1.0-dev             # needed for building hyprland
-sudo apt install -y xdg-desktop-portal-wlr      # needed for building hyprland
-sudo apt install -y hwdata-dev                  # needed for building hyprland
-sudo apt install -y qt5-wayland                 # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-wayland                 # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-base-dev                # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-base-dev-tools          # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-base-private-dev        # needed for building xdg-desktop-portal-hyprland
+# needed for building hyprland
+sudo apt install -y gettext \
+    gettext-base \
+    fontconfig \
+    libfontconfig-dev \
+    libffi-dev \
+    libxml2-dev \
+    libdrm-dev \
+    libxkbcommon-x11-dev \
+    libxkbregistry-dev \
+    libxkbcommon-dev \
+    libpixman-1-dev \
+    libudev-dev \
+    libseat-dev \
+    seatd \
+    libxcb-dri3-dev \
+    libvulkan-dev \
+    libvulkan-volk-dev \
+    vulkan-validationlayers-dev \
+    libvkfft-dev \
+    libgulkan-dev \
+    libegl-dev \
+    libgles2 \
+    libegl1-mesa-dev \
+    glslang-tools \
+    libinput-bin \
+    libinput-dev \
+    libxcb-composite0-dev \
+    libavutil-dev \
+    libavcodec-dev \
+    libavformat-dev \
+    libxcb-ewmh2 \
+    libxcb-ewmh-dev \
+    libxcb-present-dev \
+    libxcb-icccm4-dev \
+    libxcb-render-util0-dev \
+    libxcb-res0-dev \
+    libxcb-xinput-dev \
+    libpango1.0-dev \
+    xdg-desktop-portal-wlr \
+    hwdata-dev
+sudo apt install -y qt6-wayland          # needed for building xdg-desktop-portal-hyprland
+sudo apt install -y qt6-base-dev         # needed for building xdg-desktop-portal-hyprland
+sudo apt install -y qt6-base-dev-tools   # needed for building xdg-desktop-portal-hyprland
+sudo apt install -y qt6-base-private-dev # needed for building xdg-desktop-portal-hyprland
 
 # install wm
 # clean up old build
