@@ -22,6 +22,8 @@ sudo apt install -y gettext \
     libffi-dev \
     libxml2-dev \
     libdrm-dev \
+    libgbm-dev \
+    libliftoff-dev \
     libxkbcommon-x11-dev \
     libxkbregistry-dev \
     libxkbcommon-dev \
@@ -54,7 +56,7 @@ sudo apt install -y gettext \
     libxcb-xinput-dev \
     libpango1.0-dev \
     xdg-desktop-portal-wlr \
-    hwdata-dev
+    hwdata
 sudo apt install -y qt6-wayland          # needed for building xdg-desktop-portal-hyprland
 sudo apt install -y qt6-base-dev         # needed for building xdg-desktop-portal-hyprland
 sudo apt install -y qt6-base-dev-tools   # needed for building xdg-desktop-portal-hyprland
@@ -82,7 +84,7 @@ mkdir build &&
         -Ddocumentation=false &&
     ninja
 sudo ninja install
-cd ../..
+cd $CWDIR/build
 
 # install wayland-protocols
 sudo apt install -y wayland-protocols
@@ -106,7 +108,7 @@ mkdir build &&
     meson setup --prefix=/usr --buildtype=release &&
     ninja
 sudo ninja install
-cd ../..
+cd $CWDIR/build
 
 # install hyprland
 wget https://github.com/hyprwm/Hyprland/releases/download/v0.26.0/source-v0.26.0.tar.gz
@@ -115,7 +117,7 @@ chmod a+rw hyprland-source
 cd hyprland-source/
 sed -i 's/\/usr\/local/\/usr/g' config.mk
 sudo make install
-cd ../..
+cd $CWDIR/build
 
 # install xdg-desktop-portal-hyprland
 wget -O xdg-desktop-portal-hyprland https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v0.4.0.tar.gz
