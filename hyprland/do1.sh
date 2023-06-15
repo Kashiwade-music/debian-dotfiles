@@ -55,7 +55,8 @@ sudo apt install -y gettext \
     libxcb-res0-dev \
     libxcb-xinput-dev \
     libpango1.0-dev \
-    hwdata
+    hwdata \
+    edid-decode
 
 # needed for building xdg-desktop-portal-hyprland
 sudo apt install -y qt6-wayland \
@@ -122,6 +123,8 @@ tar -xvf libliftoff.tar.gz
 cd libliftoff-v0.4.1
 meson setup build/
 ninja -C build/
+sudo ninja -C build/ install
+cd $CWDIR/build
 
 # install hyprland
 wget https://github.com/hyprwm/Hyprland/releases/download/v0.26.0/source-v0.26.0.tar.gz
