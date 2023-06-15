@@ -72,6 +72,28 @@ sudo apt install -y qt6-wayland \
     libinih-dev \
     libsystemd-dev
 
+# needed for building waybar-hyprland
+sudo apt install -y clang-tidy \
+    gobject-introspection \
+    libdbusmenu-gtk3-dev \
+    libevdev-dev \
+    libfmt-dev \
+    libgirepository1.0-dev \
+    libgtk-3-dev \
+    libgtkmm-3.0-dev \
+    libinput-dev \
+    libjsoncpp-dev \
+    libmpdclient-dev \
+    libnl-3-dev \
+    libnl-genl-3-dev \
+    libpulse-dev \
+    libsigc++-2.0-dev \
+    libspdlog-dev \
+    libwayland-dev \
+    scdoc \
+    upower \
+    libxkbregistry-dev
+
 # install wm
 # clean up old build
 rm -rf ./build
@@ -208,8 +230,8 @@ sudo apt install swaylock swayidle swaybg wofi grim slurp wob xwayland -y
 ## chmod +x ~/.config/sway/inactive-windows-transparency.sh
 
 # install hyprland config
-mkdir -p ~/.config/hyprland
-find ~/.config/hyprland/ -name "conf" | xargs rm
+mkdir -p ~/.config/hypr
+find ~/.config/hypr/ -name "conf" | xargs rm
 ln -s "$(pwd)/HOME/.config/hypr/hyprland.conf" ~/.config/hypr/hyprland.conf
 ln -s "$(pwd)/HOME/.config/hypr/hyprpaper.conf" ~/.config/hypr/hyprpaper.conf
 
