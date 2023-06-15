@@ -94,7 +94,11 @@ sudo apt install -y clang-tidy \
     upower \
     libxkbregistry-dev \
     libinotifytools0-dev \
-    libupower-glib-dev
+    libupower-glib-dev \
+    libplayerctl-dev \
+    libjack-dev \
+    libwireplumber-0.4-dev \
+    libsndio-dev
 
 # install wm
 # clean up old build
@@ -205,7 +209,18 @@ mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
 cmake --build .
-cmake --build . --target install
+sudo cmake --build . --target install
+# なんかできない
+cd $CWDIR/build
+
+# install libinoify
+# (dependency of waybar)
+git clone https://github.com/libinotify-kqueue/libinotify-kqueue.git
+cd libinotify-kqueue
+autoreconf -fvi
+./configure
+make
+sudo make install
 cd $CWDIR/build
 
 # install waybar
