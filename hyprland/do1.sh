@@ -24,7 +24,6 @@ sudo apt install -y gettext \
     libxml2-dev \
     libdrm-dev \
     libgbm-dev \
-    libliftoff-dev \
     libxkbcommon-x11-dev \
     libxkbregistry-dev \
     libxkbcommon-dev \
@@ -64,7 +63,8 @@ sudo apt install -y qt6-wayland \
     qt6-base-dev-tools \
     qt6-base-private-dev \
     libpipewire-0.3-dev \
-    libinih-dev
+    libinih-dev \
+    libsystemd-dev
 
 # install wm
 # clean up old build
@@ -103,6 +103,7 @@ sudo apt install -y wayland-protocols
 # cd ../..
 
 # install libdisplay-info
+# (dependency of hyprland)
 # sudo apt install -y libdisplay-info-dev
 wget https://gitlab.freedesktop.org/emersion/libdisplay-info/-/releases/0.1.1/downloads/libdisplay-info-0.1.1.tar.xz
 tar -xvJf libdisplay-info-0.1.1.tar.xz
@@ -114,6 +115,14 @@ mkdir build &&
 sudo ninja install
 cd $CWDIR/build
 
+# install libliftoff
+# (dependency of wlroot)
+wget -O libliftoff.tar.gz https://gitlab.freedesktop.org/emersion/libliftoff/-/archive/v0.4.1/libliftoff-v0.4.1.tar.gz
+tar -xvf libliftoff.tar.gz
+cd libliftoff-v0.4.1
+meson setup build/
+ninja -C build/
+
 # install hyprland
 wget https://github.com/hyprwm/Hyprland/releases/download/v0.26.0/source-v0.26.0.tar.gz
 tar -xvf source-v0.26.0.tar.gz
@@ -124,6 +133,7 @@ sudo make install
 cd $CWDIR/build
 
 # install hyprland-protocols
+# (dependency of xdg-desktop-portal-hyprland)
 wget -O hyprland-protocols.tar.gz https://github.com/hyprwm/hyprland-protocols/archive/refs/tags/v0.2.tar.gz
 tar -xvf hyprland-protocols.tar.gz
 cd hyprland-protocols-0.2
