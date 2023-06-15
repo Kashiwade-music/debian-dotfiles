@@ -92,7 +92,9 @@ sudo apt install -y clang-tidy \
     libwayland-dev \
     scdoc \
     upower \
-    libxkbregistry-dev
+    libxkbregistry-dev \
+    libinotifytools0-dev \
+    libupower-glib-dev
 
 # install wm
 # clean up old build
@@ -191,8 +193,19 @@ cd xdg-desktop-portal-hyprland-0.4.0
 meson build --prefix=/usr
 ninja -C build
 cd hyprland-share-picker && make all && cd ..
-ninja -C build install
+sudo ninja -C build install
 sudo cp ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
+cd $CWDIR/build
+
+# install epoll-shim
+# (dependency of waybar)
+git clone https://github.com/jiixyj/epoll-shim.git
+cd epoll-shim
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
+cmake --build .
+cmake --build . --target install
 cd $CWDIR/build
 
 # install waybar
