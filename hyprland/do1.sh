@@ -230,23 +230,36 @@ sudo ninja -C build install
 sudo cp ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
 cd $CWDIR/build
 
-# install epoll-shim
-# (dependency of waybar)
-git clone https://github.com/jiixyj/epoll-shim.git
-cd epoll-shim
-mkdir build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
-cmake --build .
-sudo cmake --build . --target install
-# なんかできない
-cd $CWDIR/build
+###########以下のやつをやってもインストールできなかったし、必須ではないらしいので省略
+# # install epoll-shim
+# # (dependency of waybar)
+# git clone https://github.com/jiixyj/epoll-shim.git
+# cd epoll-shim
+# mkdir build
+# cd build
+# cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
+# cmake --build .
+# sudo cmake --build . --target install
+# # なんかできない
+# cd $CWDIR/build
+#
+# # install libinoify
+# # (dependency of waybar)
+# git clone https://github.com/libinotify-kqueue/libinotify-kqueue.git
+# cd libinotify-kqueue
+# autoreconf -fvi
+# ./configure
+# make
+# sudo make install
+# cd $CWDIR/build
 
-# install libinoify
+# install cava
 # (dependency of waybar)
-git clone https://github.com/libinotify-kqueue/libinotify-kqueue.git
-cd libinotify-kqueue
-autoreconf -fvi
+# there are cava in apt repository, but it is old version
+wget -O cava.tar.gz https://github.com/karlstav/cava/archive/refs/tags/0.8.3.tar.gz
+tar -xvf cava.tar.gz
+cd cava-0.8.3
+./autogen.sh
 ./configure
 make
 sudo make install
@@ -256,6 +269,8 @@ cd $CWDIR/build
 git clone https://github.com/Alexays/Waybar.git
 cd Waybar
 sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+mkdir -p subprojects
+meson wrap install date
 meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
 # meson --prefix=/usr --buildtype=plain --auto-features=enabled build
 meson configure -Dexperimental=true build
