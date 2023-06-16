@@ -103,7 +103,6 @@ sudo apt install -y clang-tidy \
     libplayerctl-dev \
     libjack-dev \
     libwireplumber-0.4-dev \
-    libsndio-dev \
     libgtk-layer-shell-dev \
     pkg-config \
     libinput10 \
