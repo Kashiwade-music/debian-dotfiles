@@ -5,12 +5,7 @@
   // "width": 1280, // Waybar width
   "spacing": 10, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
-    "custom/media"
-  ],
+  "modules-left": ["wlr/workspaces", "custom/media"],
   "modules-center": ["clock"],
   "modules-right": [
     "cpu",
@@ -23,7 +18,7 @@
   // Modules configuration
 
   // https://www.mankier.com/5/waybar-sway-workspaces
-  "sway/workspaces": {
+  "wlr/workspaces": {
     "persistent_workspaces": {
       //Lists workspaces that should always be shown, even when non existent
       "1": [],
