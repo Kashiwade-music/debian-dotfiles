@@ -73,7 +73,9 @@ sudo apt install -y qt6-wayland \
     libsystemd-dev
 
 # needed for building cava
-sudo apt install -y libfftw3-dev
+sudo apt install -y libfftw3-dev \
+    libiniparser-dev \
+    libasound2-dev
 
 # needed for building waybar-hyprland
 sudo apt install -y clang-tidy \
@@ -259,13 +261,21 @@ cd $CWDIR/build
 # install cava
 # (dependency of waybar)
 # there are cava in apt repository, but it is old version
+# link iniparser to /usr/include/iniparser.h from /usr/local/include/iniparser/iniparser.h
+sudo ln -s /usr/include/iniparser/iniparser.h /usr/include/iniparser.h
+sudo ln -s /usr/include/iniparser/dictionary.h /usr/include/dictionary.h
 wget -O cava.tar.gz https://github.com/LukashonakV/cava/archive/refs/tags/0.8.4.tar.gz
 tar -xvf cava.tar.gz
 cd cava-0.8.4
 ./autogen.sh
-./configure
+./configure --prefix=/usr
 make
 sudo make install
+meson setup build
+meson compile -C build
+sudo meson install -C build
+rm -rf /usr/include/iniparser.h
+rm -rf /usr/include/dictionary.h
 cd $CWDIR/build
 
 # install waybar
