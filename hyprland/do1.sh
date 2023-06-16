@@ -274,8 +274,8 @@ sudo make install
 meson setup build
 meson compile -C build
 sudo meson install -C build
-rm -rf /usr/include/iniparser.h
-rm -rf /usr/include/dictionary.h
+sudo rm -rf /usr/include/iniparser.h
+sudo rm -rf /usr/include/dictionary.h
 cd $CWDIR/build
 
 # install waybar
