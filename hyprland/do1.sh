@@ -72,6 +72,9 @@ sudo apt install -y qt6-wayland \
     libinih-dev \
     libsystemd-dev
 
+# needed for building cava
+sudo apt install -y libfftw3-dev
+
 # needed for building waybar-hyprland
 sudo apt install -y clang-tidy \
     gobject-introspection \
@@ -256,9 +259,9 @@ cd $CWDIR/build
 # install cava
 # (dependency of waybar)
 # there are cava in apt repository, but it is old version
-wget -O cava.tar.gz https://github.com/karlstav/cava/archive/refs/tags/0.8.3.tar.gz
+wget -O cava.tar.gz https://github.com/LukashonakV/cava/archive/refs/tags/0.8.4.tar.gz
 tar -xvf cava.tar.gz
-cd cava-0.8.3
+cd cava-0.8.4
 ./autogen.sh
 ./configure
 make
