@@ -263,19 +263,19 @@ cd $CWDIR/build
 # link iniparser to /usr/include/iniparser.h from /usr/local/include/iniparser/iniparser.h
 sudo ln -s /usr/include/iniparser/iniparser.h /usr/include/iniparser.h
 sudo ln -s /usr/include/iniparser/dictionary.h /usr/include/dictionary.h
-wget -O cava.tar.gz https://github.com/LukashonakV/cava/archive/refs/tags/0.8.4.tar.gz
-tar -xvf cava.tar.gz
-cd cava-0.8.4
-./autogen.sh
-./configure --prefix=/usr
-make
-sudo make install
-meson setup build
-meson compile -C build
-sudo meson install -C build
-sudo rm -rf /usr/include/iniparser.h
-sudo rm -rf /usr/include/dictionary.h
-cd $CWDIR/build
+# wget -O cava.tar.gz https://github.com/LukashonakV/cava/archive/refs/tags/0.8.4.tar.gz
+# tar -xvf cava.tar.gz
+# cd cava-0.8.4
+# ./autogen.sh
+# ./configure --prefix=/usr
+# make
+# sudo make install
+# meson setup build --prefix=/usr
+# meson compile -C build
+# sudo meson install -C build
+# sudo rm -rf /usr/include/iniparser.h
+# sudo rm -rf /usr/include/dictionary.h
+# cd $CWDIR/build
 
 # install waybar
 git clone https://github.com/Alexays/Waybar.git
