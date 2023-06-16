@@ -103,7 +103,6 @@ sudo apt install -y clang-tidy \
     libplayerctl-dev \
     libjack-dev \
     libwireplumber-0.4-dev \
-    libsndio-dev \
     libgtk-layer-shell-dev \
     pkg-config \
     libinput10 \
@@ -284,8 +283,9 @@ cd Waybar
 sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
 mkdir -p subprojects
 meson wrap install date
-# meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
-meson --prefix=/usr --buildtype=plain --auto-features=enabled build
+meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
+# meson --prefix=/usr --buildtype=plain --auto-features=enabled build
+# meson --prefix=/usr build
 meson configure -Dexperimental=true build
 sudo ninja -C build install
 cd $CWDIR/build
