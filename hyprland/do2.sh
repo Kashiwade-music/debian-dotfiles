@@ -94,9 +94,9 @@ sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Sourc
 sudo unzip /usr/share/fonts/SourceCodePro.zip -d /usr/share/fonts/truetype/SauceCodePro/
 sudo rm /usr/share/fonts/SourceCodePro.zip
 
-# espanso / checked at 20230608
+# espanso / checked at 20230620
 echo "${ESC}[34m------------espanso------------${ESC}[m"
-wget https://github.com/federico-terzi/espanso/releases/download/v2.1.5-beta/espanso-debian-wayland-amd64.deb
+wget https://github.com/federico-terzi/espanso/releases/download/v2.1.8/espanso-debian-wayland-amd64.deb
 sudo apt install -y ./espanso-debian-wayland-amd64.deb
 sudo setcap "cap_dac_override+p" $(which espanso)
 espanso service register
@@ -124,10 +124,6 @@ echo "${ESC}[34m------------wezterm------------${ESC}[m"
 wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Debian11.deb
 sudo apt -y install ./wezterm-nightly.Debian11.deb
 ln -s "$(pwd)/HOME/.wezterm.lua" ~/.wezterm.lua
-
-# pip3 / checked at 20230608
-echo "${ESC}[34m------------pip3------------${ESC}[m"
-sudo apt install -y python-pip3
 
 # set git
 git config --global user.name "Kashiwade-music"
