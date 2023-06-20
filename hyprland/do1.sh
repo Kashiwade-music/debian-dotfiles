@@ -340,12 +340,25 @@ mkdir -p ~/.config/swaylock
 find ~/.config/swaylock/ -name "config" | xargs rm
 ln -s "$(pwd)/HOME/.config/swaylock/config" ~/.config/swaylock/config
 
-# pip install i3ipc for autotiling
-## pip3 install --break-system-packages --user i3ipc
-
 # make ~/.local/bin if not exists
 # mkdir -p ~/.local/bin
 # wget https://raw.githubusercontent.com/nwg-piotr/autotiling/master/autotiling/main.py -O ~/.local/bin/autotiling
 # chmod +x ~/.local/bin/autotiling
 # echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bashrc
 # source ~/.bashrc
+
+# ==============================================================
+# =                  INSTALL NON-WM SOFTWARES                  =
+# ==============================================================
+
+# Install fcitx-mozc
+# Uninstall ibus to prevent fcitx and ibus from fighting with each other.
+sudo apt -y install fcitx-mozc
+sudo apt -y purge ibus
+
+echo "${ESC}[34mSTEP: Set input method to fcitx ${ESC}[m"
+im-config
+
+sudo apt -y install snapd curl
+
+sudo reboot
