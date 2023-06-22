@@ -86,11 +86,7 @@ echo "${ESC}[34m------------oh-my-posh------------${ESC}[m"
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 mkdir -p ~/.config/powershell
 touch ~/.config/powershell/profile.ps1
-echo "oh-my-posh init pwsh --config ~/.config/oh-my-posh-theme/night-owl.omp.json | Invoke-Expression" >>~/.config/powershell/profile.ps1
-
-# oh-my-posh-theme / checked at 20230619
-mkdir -p ~/.config/oh-my-posh-theme
-ln -s "$(pwd)/HOME/.config/oh-my-posh-theme/night-owl.omp.json" ~/.config/oh-my-posh-theme/night-owl.omp.json
+echo "oh-my-posh init pwsh --config $(brew --prefix oh-my-posh)/themes/night-owl.omp.json | Invoke-Expression" >>~/.config/powershell/profile.ps1
 
 # nerd-fonts / checked at 20230608
 echo "${ESC}[34m------------nerd-fonts------------${ESC}[m"
@@ -129,39 +125,12 @@ wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.De
 sudo apt -y install ./wezterm-nightly.Debian11.deb
 ln -s "$(pwd)/HOME/.wezterm.lua" ~/.wezterm.lua
 
-# pip3 / checked at 20230608
-echo "${ESC}[34m------------pip3------------${ESC}[m"
-sudo apt install -y python3-pip
-
-# nautilus-open-any-terminal / checked at 20230608
-echo "${ESC}[34m------------nautilus-open-any-terminal------------${ESC}[m"
-pip3 install nautilus-open-any-terminal
-
-# set default terminal
-echo "${ESC}[34mSET YOUR TERMINAL AS WESTERM${ESC}[m"
-sudo update-alternatives --config x-terminal-emulator
-
 # set git
 git config --global user.name "Kashiwade-music"
 git config --global user.email "music5d7_9265@outlook.jp"
 
 # Settings
 echo "${ESC}[34m------------Settings------------${ESC}[m"
-gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip "['<Shift><Super>s']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Primary><Alt>f']"
-
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "terminal"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "wezterm"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Primary><Alt>t"
-
-gsettings set org.gnome.shell favorite-apps "['code.desktop', 'vivaldi-stable.desktop', 'org.wezfurlong.wezterm.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Nautilus.desktop', 'gnome-system-monitor.desktop', 'org.gnome.tweaks.desktop', 'syncthing-ui.desktop']"
-
-gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-
-gsettings set org.gtk.Settings.FileChooser show-hidden true
-
-xdg-settings set default-web-browser vivaldi-stable.desktop
 
 mkdir -p ~/.config/autostart/
 cp ./HOME/.config/autostart/syncthing-start.desktop ~/.config/autostart/
