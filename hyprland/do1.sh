@@ -1,4 +1,7 @@
 #!/bin/bash
+log=$(pwd)/$(date '+%Y%m%d-%H%M%S').log
+exec &> >(awk '{print strftime("[%Y/%m/%d %H:%M:%S] "),$0} {fflush()}' | tee -a $log)
+
 ESC=$(printf '\033')
 sudo apt update
 
@@ -61,7 +64,8 @@ sudo apt install -y gettext \
     libxcb-xinput-dev \
     libpango1.0-dev \
     hwdata \
-    edid-decode
+    edid-decode \
+    xwayland
 
 # needed for building xdg-desktop-portal-hyprland
 sudo apt install -y qt6-wayland \
