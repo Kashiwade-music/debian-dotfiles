@@ -3,28 +3,28 @@ log=$(pwd)/$(date '+%Y%m%d-%H%M%S').log
 exec &> >(awk '{print strftime("[%Y/%m/%d %H:%M:%S] "),$0} {fflush()}' | tee -a $log)
 
 ESC=$(printf '\033')
-sudo apt update
+sudo apt-get update
 
 # mkdir Documents Downloads Pictures Videos Music
 mkdir -p ~/Documents ~/Downloads ~/Pictures ~/Videos ~/Music
 
 # install build dependencies
-sudo apt install -y wget \
+sudo apt-get install -y wget \
     build-essential
 
 # needed for building wayland, wayland-protocols, wlroots, hyprland(cmake)
-sudo apt install -y meson \
+sudo apt-get install -y meson \
     ninja-build \
     cmake \
     cmake-extras
 
 # needed for building xcb-errors (it is a dependency of wlroots)
-sudo apt install -y dh-autoreconf \
+sudo apt-get install -y dh-autoreconf \
     xutils-dev \
     xcb-proto
 
 # needed for building hyprland
-sudo apt install -y gettext \
+sudo apt-get install -y gettext \
     gettext-base \
     fontconfig \
     libfontconfig-dev \
@@ -68,7 +68,7 @@ sudo apt install -y gettext \
     xwayland
 
 # needed for building xdg-desktop-portal-hyprland
-sudo apt install -y qt6-wayland \
+sudo apt-get install -y qt6-wayland \
     qt6-base-dev \
     qt6-base-dev-tools \
     qt6-base-private-dev \
@@ -77,12 +77,12 @@ sudo apt install -y qt6-wayland \
     libsystemd-dev
 
 # needed for building cava
-sudo apt install -y libfftw3-dev \
+sudo apt-get install -y libfftw3-dev \
     libiniparser-dev \
     libasound2-dev
 
 # needed for building waybar-hyprland
-sudo apt install -y clang-tidy \
+sudo apt-get install -y clang-tidy \
     gobject-introspection \
     libdbusmenu-gtk3-dev \
     libevdev-dev \
@@ -162,7 +162,7 @@ sudo ninja install
 cd $CWDIR/build
 
 # install wayland-protocols
-sudo apt install -y wayland-protocols
+sudo apt-get install -y wayland-protocols
 # wget https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.31/downloads/wayland-protocols-1.31.tar.xz
 # tar -xvJf wayland-protocols-1.31.tar.xz
 # cd wayland-protocols-1.31
@@ -175,7 +175,7 @@ sudo apt install -y wayland-protocols
 
 # install libdisplay-info
 # (dependency of hyprland)
-# sudo apt install -y libdisplay-info-dev
+# sudo apt-get install -y libdisplay-info-dev
 wget https://gitlab.freedesktop.org/emersion/libdisplay-info/-/releases/0.1.1/downloads/libdisplay-info-0.1.1.tar.xz
 tar -xvJf libdisplay-info-0.1.1.tar.xz
 cd libdisplay-info-0.1.1/
@@ -263,7 +263,7 @@ cd $CWDIR/build
 
 # install cava
 # (dependency of waybar)
-# there are cava in apt repository, but it is old version
+# there are cava in apt-get repository, but it is old version
 # link iniparser to /usr/include/iniparser.h from /usr/local/include/iniparser/iniparser.h
 sudo ln -s /usr/include/iniparser/iniparser.h /usr/include/iniparser.h
 sudo ln -s /usr/include/iniparser/dictionary.h /usr/include/dictionary.h
@@ -305,9 +305,9 @@ cd $CWDIR
 ##########################
 
 # install other utils
-sudo apt install -y mako     # notification daemon
-sudo apt install -y pipewire # screensharing
-sudo apt install swaylock swayidle swaybg wofi grim slurp wob xwayland -y
+sudo apt-get install -y mako     # notification daemon
+sudo apt-get install -y pipewire # screensharing
+sudo apt-get install swaylock swayidle swaybg wofi grim slurp wob xwayland -y
 
 # install sway config
 ## mkdir -p ~/.config/sway
@@ -355,14 +355,14 @@ ln -s "$(pwd)/HOME/.config/swaylock/config" ~/.config/swaylock/config
 # =                  INSTALL NON-WM SOFTWARES                  =
 # ==============================================================
 
-# Install fcitx-mozc
-# Uninstall ibus to prevent fcitx and ibus from fighting with each other.
-sudo apt -y install fcitx-mozc
-sudo apt -y purge ibus
+# nerd-fonts / checked at 20230608
+echo "${ESC}[34m------------nerd-fonts------------${ESC}[m"
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/SourceCodePro.zip -O /usr/share/fonts/SourceCodePro.zip
+sudo unzip /usr/share/fonts/SourceCodePro.zip -d /usr/share/fonts/truetype/SauceCodePro/
+sudo rm /usr/share/fonts/SourceCodePro.zip
 
-echo "${ESC}[34mSTEP: Set input method to fcitx ${ESC}[m"
-im-config
-
-sudo apt -y install snapd curl
-
-sudo reboot
+# wezterm / checked at 20230608
+echo "${ESC}[34m------------wezterm------------${ESC}[m"
+wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Debian11.deb
+sudo apt-get -y install ./wezterm-nightly.Debian11.deb
+ln -s "$(pwd)/HOME/.wezterm.lua" ~/.wezterm.lua
