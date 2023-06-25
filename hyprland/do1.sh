@@ -142,7 +142,8 @@ sudo apt-get install -y clang-tidy \
 
 # needed for building hyprpaper
 sudo apt-get install -y libwlroots-dev \
-    libwlroots10
+    libwlroots10 \
+    libmagic-dev
 
 # install wm
 # clean up old build
