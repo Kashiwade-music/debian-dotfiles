@@ -140,6 +140,10 @@ sudo apt-get install -y clang-tidy \
     libxkbregistry0 \
     libplayerctl-dev
 
+# needed for building hyprpaper
+sudo apt-get install -y libwlroots-dev \
+    libwlroots10
+
 # install wm
 # clean up old build
 rm -rf ./build
