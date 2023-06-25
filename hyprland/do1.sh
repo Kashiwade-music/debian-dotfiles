@@ -79,7 +79,10 @@ sudo apt-get install -y qt6-wayland \
 # needed for building cava
 sudo apt-get install -y libfftw3-dev \
     libiniparser-dev \
-    libasound2-dev
+    libasound2-dev \
+    libportaudio2 \
+    libportaudiocpp0 \
+    libsdl2-dev
 
 # needed for building waybar-hyprland
 sudo apt-get install -y clang-tidy \
