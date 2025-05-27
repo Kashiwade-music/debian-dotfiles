@@ -6,9 +6,9 @@ sudo apt update
 echo "${ESC}[34mSTEP: Englishize folder names ${ESC}[m"
 LANG=C xdg-user-dirs-gtk-update
 
-# Install fcitx-mozc
-# Uninstall ibus to prevent fcitx and ibus from fighting with each other.
-sudo apt -y install fcitx-mozc
+# Install fcitx5-mozc
+# Uninstall ibus to prevent fcitx5 and ibus from fighting with each other.
+sudo apt -y install fcitx5-mozc
 sudo apt -y purge ibus
 
 echo "${ESC}[34mSTEP: Set input method to fcitx ${ESC}[m"
