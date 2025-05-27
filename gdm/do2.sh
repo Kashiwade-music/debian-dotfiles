@@ -12,9 +12,9 @@ echo "${ESC}[34mSTEP: Make sure that certain characters are input in half-width 
 
 ######## Install Programs ########
 
-# neofetch
-echo "${ESC}[34m------------neofetch------------${ESC}[m"
-sudo apt -y install neofetch
+# fastfetch
+echo "${ESC}[34m------------fastfetch------------${ESC}[m"
+sudo apt -y install fastfetch
 
 # git
 echo "${ESC}[34m------------git------------${ESC}[m"
