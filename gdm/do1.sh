@@ -11,7 +11,7 @@ LANG=C xdg-user-dirs-gtk-update
 sudo apt -y install fcitx5-mozc
 sudo apt -y purge ibus
 
-echo "${ESC}[34mSTEP: Set input method to fcitx ${ESC}[m"
+echo "${ESC}[34mSTEP: Set input method to fcitx5 ${ESC}[m"
 im-config
 
 sudo apt -y install snapd curl
