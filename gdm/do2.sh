@@ -5,7 +5,7 @@ sudo apt update
 echo "${ESC}[34mSTEP: Set input method as follows.${ESC}[m"
 echo "${ESC}[34mキーボード - 日本語        日本語${ESC}[m"
 echo "${ESC}[34mmozc                       日本語${ESC}[m"
-fcitx-config-gtk3
+fcitx5-configtool
 
 echo "${ESC}[34mSTEP: Make sure that certain characters are input in half-width characters even in Japanese input mode.${ESC}[m"
 /usr/lib/mozc/mozc_tool --mode=config_dialog
